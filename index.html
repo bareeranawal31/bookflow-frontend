@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BookFlow — Book appointments, effortlessly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="notif-bell" class="notif-bell hidden">🔔<span id="notif-count" class="notif-count hidden">0</span></div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="brand" onclick="navigate('landing')">
+        <span class="brand-mark">§</span> BookFlow
+      </a>
+      <div class="nav-links" id="nav-links"></div>
+    </div>
+  </nav>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <p>BookFlow — a ledger for every appointment. Built for AZ-900 hands-on practice.</p>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

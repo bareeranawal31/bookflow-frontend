@@ -1,0 +1,207 @@
+/* ===========================================================
+   BookFlow Design System — "The Ledger"
+   Ink navy + brass gold, ruled-paper texture, stamped booking
+   tickets. Inspired by old appointment books & receipt stubs.
+   =========================================================== */
+
+:root {
+  --ink: #16233F;
+  --ink-2: #1F3155;
+  --paper: #EFEAE0;
+  --paper-2: #FBF9F3;
+  --brass: #B8923F;
+  --brass-light: #D9B96C;
+  --rule: #C9C2AC;
+  --confirmed: #3F6B4F;
+  --pending: #B8792A;
+  --cancelled: #A94438;
+  --text: #201C14;
+  --text-soft: #5C5646;
+  --shadow: 0 8px 24px rgba(22, 35, 63, 0.12);
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  background-image:
+    repeating-linear-gradient(transparent, transparent 39px, var(--rule) 39px, var(--rule) 40px);
+  background-attachment: local;
+}
+
+h1, h2, h3, h4 { font-family: 'Fraunces', serif; margin: 0 0 0.4em; color: var(--ink); font-weight: 600; }
+h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+p { line-height: 1.6; color: var(--text-soft); }
+a { color: inherit; text-decoration: none; }
+.mono { font-family: 'Space Mono', monospace; }
+
+button, .btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-primary { background: var(--ink); color: var(--paper-2); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-brass { background: var(--brass); color: var(--ink); }
+.btn-brass:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-outline { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-danger { background: var(--cancelled); color: white; }
+.btn-sm { padding: 0.45rem 0.9rem; font-size: 0.82rem; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+input, select, textarea {
+  font-family: 'Inter', sans-serif;
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  font-size: 0.95rem;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 1px;
+  border-color: var(--brass);
+}
+label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-2); margin: 0.9rem 0 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ---------------- NAVBAR ---------------- */
+.navbar { background: var(--ink); position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+.brand { color: var(--paper-2); font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
+.brand-mark { color: var(--brass-light); font-size: 1.6rem; }
+.nav-links { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.nav-links a, .nav-links button { color: var(--paper-2); font-size: 0.92rem; background: transparent; padding: 0.5rem 0.9rem; }
+.nav-links a:hover, .nav-links button:hover { color: var(--brass-light); }
+.nav-role-badge { background: var(--brass); color: var(--ink); padding: 0.3rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+
+.notif-bell { position: fixed; bottom: 24px; right: 24px; background: var(--ink); color: var(--paper-2); width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: var(--shadow); z-index: 40; cursor: default; }
+.notif-count { position: absolute; top: -4px; right: -4px; background: var(--cancelled); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-family: 'Inter'; }
+
+/* ---------------- LAYOUT ---------------- */
+main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; min-height: 70vh; }
+.footer { text-align: center; padding: 2rem; color: var(--text-soft); font-size: 0.85rem; border-top: 1px solid var(--rule); }
+
+/* ---------------- HERO ---------------- */
+.hero { background: var(--ink); border-radius: 8px; padding: 4rem 2.5rem; margin-bottom: 3rem; position: relative; overflow: hidden; background-image: radial-gradient(circle at 85% 20%, rgba(184,146,63,0.18), transparent 45%); }
+.hero h1 { color: var(--paper-2); max-width: 640px; }
+.hero .eyebrow { color: var(--brass-light); font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; margin-bottom: 0.8rem; display: block; }
+.hero p { color: #CBD1E0; max-width: 520px; font-size: 1.05rem; }
+.search-bar { display: flex; gap: 0.6rem; margin-top: 1.8rem; max-width: 560px; flex-wrap: wrap; }
+.search-bar input, .search-bar select { flex: 1; min-width: 160px; }
+
+/* ---------------- CARDS / GRID ---------------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+.card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: 0 1px 0 var(--rule);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.biz-card { cursor: pointer; }
+.biz-logo { font-size: 2.2rem; margin-bottom: 0.6rem; }
+.biz-cat { font-family: 'Space Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brass); }
+.biz-rating { color: var(--brass); font-weight: 700; font-size: 0.85rem; margin-top: 0.4rem; }
+.biz-addr { font-size: 0.85rem; margin-top: 0.3rem; }
+
+/* ---------------- LEDGER TICKET (signature booking element) ---------------- */
+.ticket {
+  background: var(--paper-2);
+  border: 1.5px dashed var(--rule);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+.ticket::before, .ticket::after {
+  content: ''; position: absolute; width: 14px; height: 14px; background: var(--paper);
+  border-radius: 50%; top: 50%; transform: translateY(-50%);
+}
+.ticket::before { left: -8px; }
+.ticket::after { right: -8px; }
+.ticket-main { flex: 1; }
+.ticket-service { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.ticket-meta { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--text-soft); margin-top: 0.25rem; }
+.ticket-actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+
+.stamp {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.7rem;
+  border-radius: 20px;
+  border: 1.5px solid currentColor;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.stamp.confirmed { color: var(--confirmed); }
+.stamp.pending { color: var(--pending); }
+.stamp.cancelled { color: var(--cancelled); text-decoration: line-through; }
+.stamp.completed { color: var(--ink-2); }
+
+/* ---------------- FORMS / AUTH ---------------- */
+.auth-box { max-width: 420px; margin: 2rem auto; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 8px; padding: 2.2rem; box-shadow: var(--shadow); }
+.role-toggle { display: flex; gap: 0.5rem; margin: 0.9rem 0; }
+.role-toggle button { flex: 1; background: var(--paper); border: 1.5px solid var(--rule); color: var(--text); }
+.role-toggle button.active { background: var(--ink); color: var(--paper-2); border-color: var(--ink); }
+.form-error { color: var(--cancelled); font-size: 0.85rem; margin-top: 0.6rem; }
+.form-success { color: var(--confirmed); font-size: 0.85rem; margin-top: 0.6rem; }
+
+/* ---------------- BUSINESS PROFILE ---------------- */
+.profile-header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; }
+.profile-logo { font-size: 3.5rem; }
+.service-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.service-row:last-child { border-bottom: none; }
+.slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 0.5rem; margin-top: 0.8rem; }
+.slot { padding: 0.5rem; text-align: center; border: 1.5px solid var(--rule); border-radius: var(--radius); cursor: pointer; font-family: 'Space Mono', monospace; font-size: 0.85rem; background: var(--paper-2); }
+.slot:hover { border-color: var(--brass); }
+.slot.selected { background: var(--brass); border-color: var(--brass); color: var(--ink); font-weight: 700; }
+.slot.taken { background: var(--paper); color: var(--text-soft); text-decoration: line-through; cursor: not-allowed; opacity: 0.5; }
+
+/* ---------------- DASHBOARD ---------------- */
+.dash-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.8rem; flex-wrap: wrap; gap: 1rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.2rem; }
+.stat-card { background: var(--ink); color: var(--paper-2); border-radius: var(--radius); padding: 1.2rem 1.4rem; }
+.stat-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; color: var(--brass-light); }
+.stat-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: #B8C0D6; margin-top: 0.3rem; }
+.tabs { display: flex; gap: 0.4rem; border-bottom: 2px solid var(--rule); margin-bottom: 1.6rem; }
+.tab { padding: 0.7rem 1.1rem; cursor: pointer; font-weight: 600; color: var(--text-soft); border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tab.active { color: var(--ink); border-bottom-color: var(--brass); }
+
+.empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-soft); }
+.empty-state .glyph { font-size: 2.5rem; margin-bottom: 0.6rem; }
+
+.hidden { display: none !important; }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: var(--paper-2); padding: 0.8rem 1.4rem;
+  border-radius: var(--radius); box-shadow: var(--shadow); z-index: 100;
+  font-size: 0.9rem; border-left: 4px solid var(--brass);
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 2.5rem 1.4rem; }
+  h1 { font-size: 1.9rem; }
+  .nav-inner { flex-direction: column; gap: 0.7rem; padding: 1rem; }
+}
