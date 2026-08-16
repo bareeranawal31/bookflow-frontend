@@ -3,7 +3,7 @@
 // Talks to the Express API via fetch(). No build step needed.
 // ===========================================================
 
-const API = '/api'; // same-origin (server.js serves this frontend too)
+const API = 'https://bookflow-api-h4afdpc5cwgqgdch.azurewebsites.net/api';
 
 // ---------- STATE ----------
 let state = {
